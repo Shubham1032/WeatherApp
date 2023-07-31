@@ -2,7 +2,8 @@ import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 import cloudGif from '../Assets/cloudGif.gif'
 import rainGif from '../Assets/rainGif.gif'
-
+import clearGif from '../Assets/clear.gif'
+import mistGif from '../Assets/mist.gif'
 
 const Home = () => {
     const [data,setData] = useState([]);
@@ -21,7 +22,7 @@ const Home = () => {
     function gif () {
         console.log("running")
         if(data.weather[0].main === 'Mist'){
-            return rainGif
+            return mistGif
 
         }
         else if(data.weather[0].main === 'Rain'){
@@ -29,6 +30,9 @@ const Home = () => {
         }
         else if (data.weather[0].main === 'Clouds'){
             return cloudGif
+        }
+        else if (data.weather[0].main === 'Clear'){
+            return clearGif
         }
     }
     
